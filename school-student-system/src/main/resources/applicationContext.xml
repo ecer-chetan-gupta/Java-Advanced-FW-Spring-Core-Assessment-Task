@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- Student Beans -->
+
+	<bean id="student1" class="com.capgemini.springcore.entity.Student">
+		<constructor-arg value="101" />
+		<constructor-arg value="Aman" />
+		<constructor-arg value="10" />
+	</bean>
+
+	<bean id="student2" class="com.capgemini.springcore.entity.Student">
+		<constructor-arg value="102" />
+		<constructor-arg value="Neha" />
+		<constructor-arg value="9" />
+	</bean>
+
+
+	<!-- School Bean -->
+
+	<bean id="school" class="com.capgemini.springcore.entity.School">
+
+		<constructor-arg value="401" />
+		<constructor-arg value="BrightSchool" />
+		<constructor-arg value="Jaipur" />
+
+		<constructor-arg>
+			<list>
+				<ref bean="student1" />
+				<ref bean="student2" />
+			</list>
+		</constructor-arg>
+
+	</bean>
+
+</beans>
