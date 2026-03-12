@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Hard-coded Course Beans -->
+	<bean id="course1"
+		class="com.capgemini.java_adv.framework.springcore.Course">
+		<property name="id" value="801" />
+		<property name="courseName" value="DataStructures" />
+		<property name="credits" value="4" />
+	</bean>
+
+	<bean id="course2"
+		class="com.capgemini.java_adv.framework.springcore.Course">
+		<property name="id" value="802" />
+		<property name="courseName" value="DatabaseSystems" />
+		<property name="credits" value="3" />
+	</bean>
+
+	<!-- Hard-coded Student Bean -->
+	<bean id="student1"
+		class="com.capgemini.java_adv.framework.springcore.Student">
+		<property name="id" value="701" />
+		<property name="name" value="Arjun" />
+		<property name="courses">
+			<set>
+				<ref bean="course1" />
+				<ref bean="course2" />
+			</set>
+		</property>
+	</bean>
+
+	<!-- Many-to-Many reverse side -->
+	<bean id="course1WithStudents"
+		class="com.capgemini.java_adv.framework.springcore.Course">
+		<property name="id" value="801" />
+		<property name="courseName" value="DataStructures" />
+		<property name="credits" value="4" />
+		<property name="students">
+			<list>
+				<ref bean="student1" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="course2WithStudents"
+		class="com.capgemini.java_adv.framework.springcore.Course">
+		<property name="id" value="802" />
+		<property name="courseName" value="DatabaseSystems" />
+		<property name="credits" value="3" />
+		<property name="students">
+			<list>
+				<ref bean="student1" />
+			</list>
+		</property>
+	</bean>
+
+</beans>
