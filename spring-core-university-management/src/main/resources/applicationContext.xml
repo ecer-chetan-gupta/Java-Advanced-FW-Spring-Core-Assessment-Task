@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Student Profile -->
+	<bean id="studentProfile"
+		class="com.capgemini.spring.university.entity.StudentProfile">
+
+		<property name="id" value="301" />
+		<property name="email" value="arjun@gmail.com" />
+		<property name="phone" value="9876543210" />
+
+	</bean>
+
+
+	<!-- Courses -->
+
+	<bean id="course1"
+		class="com.capgemini.spring.university.entity.Course">
+
+		<property name="id" value="501" />
+		<property name="courseName" value="Data Structures" />
+		<property name="credits" value="4" />
+
+	</bean>
+
+
+	<bean id="course2"
+		class="com.capgemini.spring.university.entity.Course">
+
+		<property name="id" value="502" />
+		<property name="courseName" value="Database Systems" />
+		<property name="credits" value="3" />
+
+	</bean>
+
+
+	<!-- Department -->
+
+	<bean id="department"
+		class="com.capgemini.spring.university.entity.Department">
+
+		<property name="id" value="101" />
+		<property name="name" value="Computer Science" />
+
+		<property name="courses">
+
+			<list>
+				<ref bean="course1" />
+				<ref bean="course2" />
+			</list>
+
+		</property>
+
+	</bean>
+
+
+	<!-- Student -->
+
+	<bean id="student"
+		class="com.capgemini.spring.university.entity.Student">
+
+		<property name="id" value="901" />
+		<property name="name" value="Arjun" />
+
+		<!-- 1:1 -->
+		<property name="profile" ref="studentProfile" />
+
+		<!-- M:1 -->
+		<property name="department" ref="department" />
+
+		<!-- M:M -->
+		<property name="courses">
+
+			<set>
+				<ref bean="course1" />
+				<ref bean="course2" />
+			</set>
+
+		</property>
+
+	</bean>
+
+</beans>
