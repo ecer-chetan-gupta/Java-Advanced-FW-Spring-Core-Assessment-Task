@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Department Bean -->
+	<bean id="department"
+		class="com.capgemini.springcore.employee_department.Department">
+		<property name="id" value="101" />
+		<property name="name" value="HR" />
+		<property name="location" value="Delhi" />
+	</bean>
+
+	<!-- Employee Bean -->
+	<bean id="employee"
+		class="com.capgemini.springcore.employee_department.Employee">
+		<property name="id" value="501" />
+		<property name="name" value="Kavita" />
+		<property name="salary" value="70000" />
+		<property name="department" ref="department" />
+	</bean>
+
+	<!-- Service Bean -->
+	<bean id="employeeService"
+		class="com.capgemini.springcore.employee_department.EmployeeService" />
+</beans>
