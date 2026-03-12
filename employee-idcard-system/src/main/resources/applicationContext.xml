@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- IDCard Bean -->
+
+	<bean id="idCard"
+		class="com.capgemini.employee_idcard.entity.IDCard">
+
+		<property name="id" value="301" />
+		<property name="cardNumber" value="ID7890" />
+		<property name="issueDate" value="2024-01-15" />
+
+	</bean>
+
+	<!-- Employee Bean -->
+
+	<bean id="employee"
+		class="com.capgemini.employee_idcard.entity.Employee">
+
+		<property name="id" value="201" />
+		<property name="name" value="Rohan" />
+		<property name="department" value="IT" />
+		<property name="idCard" ref="idCard" />
+
+	</bean>
+
+	<!-- Service Bean -->
+
+	<bean id="employeeService"
+		class="com.capgemini.employee_idcard.service.EmployeeService">
+
+		<property name="employee" ref="employee" />
+
+	</bean>
+
+</beans>
